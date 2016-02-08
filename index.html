@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>animate scroll</title>
+  <meta name="viewport" content="user-scalable=yes, width=device-width"/>
+  
+  <style>
+   body {
+      height: 4000px;
+      margin: 0;
+      padding: 5px;
+    }
+    div[id], [data-scroll] {
+      border-radius: 4px;
+      margin: 15px auto;
+      max-width: 600px;
+      padding: 10px;
+      text-align: center;
+    }
+    [data-scroll] {     
+      border: 2px solid red;
+      cursor: pointer;
+      min-height: 50px;
+    }
+    div[id] {
+      border: 2px solid green;
+      min-height: 100px;
+    }
+    span {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    td {
+      font-size: 1.2rem;
+      padding: 10px 15px;
+      text-align: center;
+    }  
+    input {
+      font-size: 1rem;
+      width: 100%;
+    }   
+  </style>
+  
+</head>
+<body>
+
+  <table rules="rows" align="center">
+    <tbody>
+      <tr>
+        <td>Set the default interval:</td>
+        <td><input type="text" onchange="animateScroll.option = {interval: this.value}; defI.innerHTML = animateScroll.option.interval;"/></td>        
+      </tr>
+      <tr> 
+        <td>Default interval:</td>
+        <td id="defI">50</td>
+      </tr>
+      <tr>
+        <td>Set the default period: </td>
+        <td><input type="text" onchange="animateScroll.option = {period: this.value}; defP.innerHTML = animateScroll.option.period;"/></td>       
+      </tr>
+      <tr>
+        <td>Default period:</td>
+        <td id="defP">20</td> 
+      </tr>
+      <tr></tr>
+    </tbody>
+  </table> 
+  <br>
+
+  <p data-scroll="a1 10 50">Down at the id = "a1", interval = 10px, period = 50ms</p>
+  
+  <div id="c3"><span>id = "c3"</span><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga labore obcaecati nobis assumenda veritatis ab blanditiis facere, eaque cupiditate recusandae tempore excepturi animi voluptate qui. Consequuntur voluptatibus animi ipsam id.</div>
+  
+  <div id="a1"><span>id = "a1"</span><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic placeat deserunt, velit dignissimos earum saepe sint, enim quasi aspernatur voluptatum maxime, omnis provident assumenda facilis error laudantium! Sint, nam, laborum.</div>
+  
+  <p data-scroll="g7 100 40">Down at the id = "g7", interval = 100px, period = 40ms</p>
+  
+  <div id="g7"><span>id = "g7"</span><br>Eaque quaerat minus, fuga cumque quisquam, animi in reiciendis laborum odit nesciunt soluta molestiae eius explicabo nobis laboriosam error maxime quo asperiores dolorum quas nulla earum fugiat tempora. Autem, numquam.</div>
+
+  <div data-scroll="b2">Down at the id = "b2", interval = intervalDer, period = periodDef</div>
+
+  <div id="d4"><span>id = "d4"</span><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga labore obcaecati nobis assumenda veritatis ab blanditiis facere, eaque cupiditate recusandae tempore excepturi animi voluptate qui. Consequuntur voluptatibus animi ipsam id.</div>
+  
+  <div data-scroll="f6">Down at the id = "f6", interval = intervalDer, period = periodDef</div>
+  
+  <div id="f6"><span>id = "f6"</span><br>Sunt adipisci eum, maxime ipsam. Quas alias placeat illum aperiam laboriosam provident consectetur commodi, quidem itaque perferendis aspernatur deserunt ad quam doloribus deleniti, est assumenda. Commodi officia nulla cupiditate in.</div>
+  
+  <h4 data-scroll="d4 100 200">Up at the id = "d4", interval = 100px, period = 200ms</h4>
+  
+  <div id="e5"><span>id = "e5"</span><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor provident incidunt tempore nemo dolores rem, ab quam consequuntur unde quae reiciendis mollitia, laboriosam accusamus vel deserunt vero inventore, iure possimus.</div>
+  
+  <p data-scroll="e5 200 500">Up at the id = "e5", interval = 200px, period = 500ms</p>
+  
+  <div id="b2"><span>id = "b2"</span><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis doloremque fugiat, modi iure blanditiis autem molestiae quam consequatur deserunt. Quisquam aut perferendis aspernatur, quas incidunt facilis officia consequatur vero. Officia!</div>
+
+  <p data-scroll="c3 200">Up at the id = "c3", interval = 200px, period = periodDef</p>
+
+  <div id="h8"><span>id = "h8"</span><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis doloremque fugiat, modi iure blanditiis autem molestiae quam consequatur deserunt. Quisquam aut perferendis aspernatur, quas incidunt facilis officia consequatur vero. Officia!<br>
+    <p data-scroll="h8" style="display:block; margin=10px">id = "h8", interval = intervalDer, period = periodDef</p>
+  </div>
+
+  <script src="js/animateScroll.min.js"></script>
+  <!--Дополнительный скрипт для запрета выделения контента-->
+  <script>
+    document.addEventListener('selectstart', function(event) {event.preventDefault();});
+  </script>
+  
+</body>
+</html>
