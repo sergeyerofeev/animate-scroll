@@ -19,7 +19,7 @@ var animateScroll = (function(){
     var element = document.getElementById(arrayOption[0]);
     var interval = (arrayOption[1])? Math.abs(parseInt(arrayOption[1], 10)): intervalDef;
     var period = (arrayOption[2])? Math.abs(parseInt(arrayOption[2], 10)): periodDef;
-    /*Получаем расстояние от верхней границы документа до элемента id которого указан в атрибуте data-scroll*/     
+    /*Получаем расстояние от верхней границы документа до элемента, id которого указан в атрибуте data-scroll*/     
     var elementTop = element.getBoundingClientRect().top + window.pageYOffset;
     /*Определяем направление прокрутки*/  
     var direction = elementTop > window.pageYOffset? interval: ~interval+1;
@@ -28,7 +28,7 @@ var animateScroll = (function(){
     /*В oldOffset храним старое значение прокрутки, для защиты от случая, когда высота страницы не достаточна 
     для того чтобы элемент занял верхнее положение в окне браузера*/
     var oldOffset = ~interval+1;
-    /*Флаг - прокрутка в орестности элемента*/
+    /*Если флаг flagArea равен true, то прокрутка в окрестности элемента*/
     var flagArea = false;
     /*Запускаем анимацию прокрутки*/
     (function scroll(){
@@ -39,10 +39,10 @@ var animateScroll = (function(){
         if(result > 0 && currentOffset !== oldOffset) {
           /*Две первые проверки if нужны в случае когда происходить движение к элементу и пользователь совершил скроллинг*/
           if((range > 0 && direction < 0) || (range < 0 && direction > 0))
-            /*Проверяем направление прокрутки, из-за вмешательства пользователя, возможно требуется изменить направление*/
+            /*Проверяем направление прокрутки, из-за вмешательства пользователя, возможно, требуется изменить направление*/
             direction = ~direction+1;
           if(flagArea){
-            /*Находились в окрестности вырхней границы элемента, но пользователь прокрутил страницу*/
+            /*Находились в окрестности верхней границы элемента, но пользователь прокрутил страницу*/
             flagArea = false;
             direction = (direction > 0)? interval: ~interval+1;
           }         
