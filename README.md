@@ -20,8 +20,7 @@ Required `id`, the other parameters are optional. The parameters are separated b
  + `period` Period in milliseconds. Period default 20 ms.
  
 The target element must be specified ID.
-
- ### Examples:
+### Examples:
 ``` html
 <p data-scroll="a1 50 20">Down at the id = "a1", interval = 50px, period = 20ms</p>
 <p data-scroll="c3 200">Up at the id = "c3", interval = 200px, period = periodDef</p>
